@@ -248,7 +248,13 @@ export class Name {
 export class Variable {}
 
 export class NameVariable extends Variable {
-    name: any
+    name: Name
+
+    constructor(name: Name) {
+        super();
+
+        this.name = name
+    }
 }
 
 export class PrefixExpressionExpressionVariable extends Variable {}
