@@ -1,6 +1,6 @@
 /** - Chunk - **/
 
-class Chunk {
+export class Chunk {
     block: Block
 
     constructor(block: Block) {
@@ -10,7 +10,7 @@ class Chunk {
 
 /** - Block - **/
 
-class Block {
+export class Block {
     statements: Statement[];
     returnStatement?: ReturnStatement
 
@@ -22,9 +22,9 @@ class Block {
 
 /** - Statement - **/
 
-class Statement {}
+export class Statement {}
 
-class VariableAssignmentStatement extends Statement {
+export class VariableAssignmentStatement extends Statement {
     variableList: VariableList
     expressionList: ExpressionList
 
@@ -36,7 +36,7 @@ class VariableAssignmentStatement extends Statement {
     }
 }
 
-class FunctionCallStatement extends Statement {
+export class FunctionCallStatement extends Statement {
     functionCall: FunctionCall
 
     constructor(functionCall: FunctionCall) {
@@ -46,7 +46,7 @@ class FunctionCallStatement extends Statement {
     }
 }
 
-class LabelStatement extends Statement {
+export class LabelStatement extends Statement {
     label: Label
 
     constructor(label: Label) {
@@ -56,9 +56,9 @@ class LabelStatement extends Statement {
     }
 }
 
-class BreakStatement extends Statement {}
+export class BreakStatement extends Statement {}
 
-class GotoStatement extends Statement {
+export class GotoStatement extends Statement {
     name: Name
 
     constructor(name: Name) {
@@ -68,7 +68,7 @@ class GotoStatement extends Statement {
     }
 }
 
-class DoBlockEndStatement extends Statement {
+export class DoBlockEndStatement extends Statement {
     block: Block
 
     constructor(block: Block) {
@@ -78,7 +78,7 @@ class DoBlockEndStatement extends Statement {
     }
 }
 
-class WhileExpressionDoBockEndStatement extends Statement {
+export class WhileExpressionDoBockEndStatement extends Statement {
     expression: Expression
     block: Block
 
@@ -90,7 +90,7 @@ class WhileExpressionDoBockEndStatement extends Statement {
     }
 }
 
-class RepeatBlockUntilExpressionStatement extends Statement {
+export class RepeatBlockUntilExpressionStatement extends Statement {
     block: Block
     expression: Expression
 
@@ -102,7 +102,7 @@ class RepeatBlockUntilExpressionStatement extends Statement {
     }
 }
 
-class IfThenElseIfEndStatement extends Statement {
+export class IfThenElseIfEndStatement extends Statement {
     expressionsBlocks: [expression: Expression, block: Block][]
     elseExpression?: Expression
 
@@ -114,7 +114,7 @@ class IfThenElseIfEndStatement extends Statement {
     }
 }
 
-class ForNameExpressionDoBlockEndStatement extends Statement {
+export class ForNameExpressionDoBlockEndStatement extends Statement {
     name: Name
     initializer: Expression
     limit: Expression
@@ -130,7 +130,7 @@ class ForNameExpressionDoBlockEndStatement extends Statement {
     }
 }
 
-class ForNameInExpressionListDoBlockEndStatement extends Statement {
+export class ForNameInExpressionListDoBlockEndStatement extends Statement {
     nameList: NameList
     expressionList: ExpressionList
     block: Block
@@ -144,7 +144,7 @@ class ForNameInExpressionListDoBlockEndStatement extends Statement {
     }
 }
 
-class FunctionNameBodyStatement extends Statement {
+export class FunctionNameBodyStatement extends Statement {
     functionName: FunctionName
     functionBody: FunctionBody
 
@@ -156,7 +156,7 @@ class FunctionNameBodyStatement extends Statement {
     }
 }
 
-class LocalFunctionNameFunctionBodyStatement extends Statement {
+export class LocalFunctionNameFunctionBodyStatement extends Statement {
     functionName: Name
     functionBody: FunctionBody
 
@@ -168,7 +168,7 @@ class LocalFunctionNameFunctionBodyStatement extends Statement {
     }
 }
 
-class LocalAttributeNameListStatement extends Statement {
+export class LocalAttributeNameListStatement extends Statement {
     attributeNameList: AttributeNameList
     expressionList?: ExpressionList
 
@@ -182,7 +182,7 @@ class LocalAttributeNameListStatement extends Statement {
 
 /** - Attribute Name List - **/
 
-class AttributeNameList {
+export class AttributeNameList {
     namesAttributes: [name: Name, attribute: Attribute][]
 
     constructor(nameAttributes: [name: Name, attribute: Attribute][]) {
@@ -192,7 +192,7 @@ class AttributeNameList {
 
 /** - Attribute - **/
 
-class Attribute {
+export class Attribute {
     name?: Name
 
     constructor(name?: Name) {
@@ -202,7 +202,7 @@ class Attribute {
 
 /** - Return Statement - **/
 
-class ReturnStatement {
+export class ReturnStatement {
     expressionList: ExpressionList
 
     constructor(expressionList: ExpressionList) {
@@ -213,7 +213,7 @@ class ReturnStatement {
 
 /** - Label - **/
 
-class Label {
+export class Label {
     name: Name
 
     constructor(name: Name) {
@@ -223,7 +223,7 @@ class Label {
 
 /** - Function Name - **/
 
-class FunctionName {
+export class FunctionName {
     names: Name[]
     endingName?: Name
 
@@ -235,25 +235,29 @@ class FunctionName {
 
 /** - Name - **/
 
-class Name {
-    value: string = ""
+export class Name {
+    name: string
+
+    constructor(value: string) {
+        this.name = value
+    }
 }
 
 /** - Variable - **/
 
-class Variable {}
+export class Variable {}
 
-class NameVariable extends Variable {
+export class NameVariable extends Variable {
     name: any
 }
 
-class PrefixExpressionExpressionVariable extends Variable {}
+export class PrefixExpressionExpressionVariable extends Variable {}
 
-class PrefixExpressionNameVariable extends Variable {}
+export class PrefixExpressionNameVariable extends Variable {}
 
 /** - Variable List - **/
 
-class VariableList {
+export class VariableList {
     variables: Variable[]
 
     constructor(variables: Variable[]) {
@@ -263,7 +267,7 @@ class VariableList {
 
 /** - NameList - */
 
-class NameList {
+export class NameList {
     constructor(names: Name[]) {
         this.names = names
     }
@@ -273,7 +277,7 @@ class NameList {
 
 /** - Expression List - **/
 
-class ExpressionList {
+export class ExpressionList {
     expressions: Expression[]
 
     constructor(expressions: Expression[]) {
@@ -283,13 +287,13 @@ class ExpressionList {
 
 /** - Expression - **/
 
-class Expression {}
+export class Expression {}
 
-class NilExpression extends Expression {
+export class NilExpression extends Expression {
     value: NilLiteral = new NilLiteral()
 }
 
-class BooleanExpression extends Expression {
+export class BooleanExpression extends Expression {
     value: BooleanLiteral
 
     constructor(value: BooleanLiteral) {
@@ -298,11 +302,11 @@ class BooleanExpression extends Expression {
     }
 }
 
-class NumeralExpression extends Expression {
+export class NumeralExpression extends Expression {
 
 }
 
-class StringLiteralExpression extends Expression {
+export class StringLiteralExpression extends Expression {
     stringLiteral: StringLiteral
 
     constructor(stringLiteral: StringLiteral) {
@@ -312,9 +316,9 @@ class StringLiteralExpression extends Expression {
     }
 }
 
-class VariadicExpression extends Expression {}
+export class VariadicExpression extends Expression {}
 
-class PrefixExpressionExpression extends Expression {
+export class PrefixExpressionExpression extends Expression {
     prefixExpression: PrefixExpression
 
     constructor(prefixExpression: PrefixExpression) {
@@ -327,57 +331,57 @@ class PrefixExpressionExpression extends Expression {
 
 /** - Prefix Expression **/
 
-class PrefixExpression {}
+export class PrefixExpression {}
 
-class VariablePrefixExpression extends PrefixExpression {
+export class VariablePrefixExpression extends PrefixExpression {
     value: Variable = {}
 }
 
-class FunctionCallPrefixExpression extends PrefixExpression {
+export class FunctionCallPrefixExpression extends PrefixExpression {
 
 }
 
-class ExpressionPrefixExpression extends PrefixExpression {
+export class ExpressionPrefixExpression extends PrefixExpression {
     value: Expression = {}
 }
 
 /** - Function Call - **/
 
-class FunctionCall {}
+export class FunctionCall {}
 
-class PrefixArgumentsFunctionCall extends FunctionCall {
+export class PrefixArgumentsFunctionCall extends FunctionCall {
     prefixExpression: PrefixExpression
     arguments: Arguments
 
     // @ts-ignore
-    constructor(prefixExpression: PrefixExpression, arguments: Arguments) {
+    constructor(prefixExpression: PrefixExpression, argumentz: Arguments) {
         super();
 
         this.prefixExpression = prefixExpression
-        this.arguments = arguments
+        this.arguments = argumentz
     }
 }
 
-class PrefixNameArgumentsFunctionCall extends FunctionCall {
+export class PrefixNameArgumentsFunctionCall extends FunctionCall {
     prefixExpression: PrefixExpression
     arguments: Arguments
 
     // @ts-ignore
-    constructor(prefixExpression: PrefixExpression, arguments: Arguments) {
+    constructor(prefixExpression: PrefixExpression, argumentz: Arguments) {
         super();
 
         this.prefixExpression = prefixExpression
-        this.arguments = arguments
+        this.arguments = argumentz
     }
 }
 
 /** - Argument - **/
 
-class Arguments {}
+export class Arguments {}
 
 /** - Function Definition - **/
 
-class FunctionDefinition {
+export class FunctionDefinition {
     functionBody: FunctionBody
 
     constructor(functionBody: FunctionBody) {
@@ -387,14 +391,14 @@ class FunctionDefinition {
 
 /** - Function Body - **/
 
-class FunctionBody {
+export class FunctionBody {
 }
 
 /** - Parameter List - **/
 
-class ParameterList {}
+export class ParameterList {}
 
-class NamedVariadicParameterList extends  ParameterList{
+export class NamedVariadicParameterList extends  ParameterList{
     nameList: NameList
     variadicLiteral?: VariadicLiteral
 
@@ -405,11 +409,11 @@ class NamedVariadicParameterList extends  ParameterList{
     }
 }
 
-class VariadicParameterList extends ParameterList {}
+export class VariadicParameterList extends ParameterList {}
 
 /** - Table Constructor - **/
 
-class TableConstructor {
+export class TableConstructor {
     fieldList?: FieldList
 
     constructor(fieldList: FieldList) {
@@ -419,7 +423,7 @@ class TableConstructor {
 
 /** - Field List - **/
 
-class FieldList {
+export class FieldList {
     fields: Field[]
 
     constructor(fields: Field[]) {
@@ -429,9 +433,9 @@ class FieldList {
 
 /** - Field - **/
 
-class Field {}
+export class Field {}
 
-class ExpressionKeyValueExpressionField extends Field {
+export class ExpressionKeyValueExpressionField extends Field {
     key: Expression
     value: Expression
 
@@ -442,7 +446,7 @@ class ExpressionKeyValueExpressionField extends Field {
     }
 }
 
-class NameKeyValueExpressionField extends Field {
+export class NameKeyValueExpressionField extends Field {
     key: Name
     value: Expression
 
@@ -454,7 +458,7 @@ class NameKeyValueExpressionField extends Field {
     }
 }
 
-class ExpressionField extends Field {
+export class ExpressionField extends Field {
     expression: Expression
 
     constructor(expression: Expression) {
@@ -465,7 +469,7 @@ class ExpressionField extends Field {
 
 /** - Binary Operator - **/
 
-enum BinaryOperator {
+export enum BinaryOperator {
     PLUS,
     MINUS,
     ASTERISK,
@@ -491,7 +495,7 @@ enum BinaryOperator {
 
 /** - Unary Operator - **/
 
-enum UnaryOperator {
+export enum UnaryOperator {
     MINUS,
     NOT,
     POUND,
@@ -500,9 +504,9 @@ enum UnaryOperator {
 
 /** - Literal - **/
 
-class Literal {}
+export class Literal {}
 
-class BooleanLiteral extends Literal {
+export class BooleanLiteral extends Literal {
     value: boolean
 
     constructor(value: boolean) {
@@ -511,7 +515,7 @@ class BooleanLiteral extends Literal {
     }
 }
 
-class StringLiteral extends Literal {
+export class StringLiteral extends Literal {
     value: string
 
     constructor(value: string) {
@@ -520,14 +524,14 @@ class StringLiteral extends Literal {
     }
 }
 
-class NilLiteral extends Literal {
+export class NilLiteral extends Literal {
     value: null = null
 }
 
-class VariadicLiteral extends Literal{}
+export class VariadicLiteral extends Literal{}
 
 // TODO: this is not conformant to the Lua numeric constant spec.
-class NumberLiteral extends Literal {
+export class NumberLiteral extends Literal {
     value: number
 
     public constructor(value: number) {
