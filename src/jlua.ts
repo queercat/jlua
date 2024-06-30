@@ -1,7 +1,8 @@
 import { lex } from "./lexer";
+import { parse } from "./parser";
 
-const source: string = `var cool_variable_123 = print("hello world 123");`
+const source: string = `return 1, true, 2, false, 3, 4`
 
-const tokens = lex(source)
+const ast = parse(lex(source))
 
-console.log(tokens)
+console.log(ast)
