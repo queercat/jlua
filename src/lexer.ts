@@ -7,7 +7,7 @@ export type Token = {
 
 const composeRegex = (...regex: RegExp[]) => new RegExp(regex.map(r => r.source).join("|"))
 
-const validAscii = /[a-zA-z0-9_]+/
+const validAscii = /[a-zA-Z0-9_]+/
 const validSymbol  = /[+\-*\/%^&#|<>~=(){}[\]:;,.'"]/
 
 const validToken = composeRegex(validAscii, validSymbol)
