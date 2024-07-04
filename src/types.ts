@@ -1,23 +1,23 @@
 /** - Chunk - **/
 
 export class Chunk {
-    block: Block
+  block: Block;
 
-    constructor(block: Block) {
-        this.block = block
-    }
+  constructor(block: Block) {
+    this.block = block;
+  }
 }
 
 /** - Block - **/
 
 export class Block {
-    statements: Statement[];
-    returnStatement?: ReturnStatement
+  statements: Statement[];
+  returnStatement?: ReturnStatement;
 
-    constructor(statements: Statement[], returnStatement?: ReturnStatement) {
-        this.statements = statements
-        this.returnStatement = returnStatement
-    }
+  constructor(statements: Statement[], returnStatement?: ReturnStatement) {
+    this.statements = statements;
+    this.returnStatement = returnStatement;
+  }
 }
 
 /** - Statement - **/
@@ -25,222 +25,232 @@ export class Block {
 export class Statement {}
 
 export class VariableAssignmentStatement extends Statement {
-    variableList: VariableList
-    expressionList: ExpressionList
+  variableList: VariableList;
+  expressionList: ExpressionList;
 
-    constructor(variableList: VariableList, expressionList: ExpressionList) {
-        super();
+  constructor(variableList: VariableList, expressionList: ExpressionList) {
+    super();
 
-        this.variableList = variableList
-        this.expressionList = expressionList
-    }
+    this.variableList = variableList;
+    this.expressionList = expressionList;
+  }
 }
 
 export class FunctionCallStatement extends Statement {
-    functionCall: FunctionCall
+  functionCall: FunctionCall;
 
-    constructor(functionCall: FunctionCall) {
-        super();
+  constructor(functionCall: FunctionCall) {
+    super();
 
-        this.functionCall = functionCall
-    }
+    this.functionCall = functionCall;
+  }
 }
 
 export class LabelStatement extends Statement {
-    label: Label
+  label: Label;
 
-    constructor(label: Label) {
-        super();
+  constructor(label: Label) {
+    super();
 
-        this.label = label
-    }
+    this.label = label;
+  }
 }
 
 export class BreakStatement extends Statement {}
 
 export class GotoStatement extends Statement {
-    name: Name
+  name: Name;
 
-    constructor(name: Name) {
-        super();
+  constructor(name: Name) {
+    super();
 
-        this.name = name
-    }
+    this.name = name;
+  }
 }
 
 export class DoBlockEndStatement extends Statement {
-    block: Block
+  block: Block;
 
-    constructor(block: Block) {
-        super();
+  constructor(block: Block) {
+    super();
 
-        this.block = block
-    }
+    this.block = block;
+  }
 }
 
 export class WhileExpressionDoBockEndStatement extends Statement {
-    expression: Expression
-    block: Block
+  expression: Expression;
+  block: Block;
 
-    constructor(expression: Expression, block: Block) {
-        super();
+  constructor(expression: Expression, block: Block) {
+    super();
 
-        this.expression = expression
-        this.block = block
-    }
+    this.expression = expression;
+    this.block = block;
+  }
 }
 
 export class RepeatBlockUntilExpressionStatement extends Statement {
-    block: Block
-    expression: Expression
+  block: Block;
+  expression: Expression;
 
-    constructor(block: Block, expression: Expression) {
-        super();
+  constructor(block: Block, expression: Expression) {
+    super();
 
-        this.block = block
-        this.expression = expression
-    }
+    this.block = block;
+    this.expression = expression;
+  }
 }
 
 export class IfThenElseIfEndStatement extends Statement {
-    expressionsBlocks: [expression: Expression, block: Block][]
-    elseExpression?: Expression
+  expressionsBlocks: [expression: Expression, block: Block][];
+  elseExpression?: Expression;
 
-    constructor(expressionBlocks: [expression: Expression, block: Block][], elseExpression?: Expression) {
-        super();
+  constructor(
+    expressionBlocks: [expression: Expression, block: Block][],
+    elseExpression?: Expression,
+  ) {
+    super();
 
-        this.expressionsBlocks = expressionBlocks
-        this.elseExpression = elseExpression
-    }
+    this.expressionsBlocks = expressionBlocks;
+    this.elseExpression = elseExpression;
+  }
 }
 
 export class ForNameExpressionDoBlockEndStatement extends Statement {
-    name: Name
-    initializer: Expression
-    limit: Expression
-    increment?: Expression
+  name: Name;
+  initializer: Expression;
+  limit: Expression;
+  increment?: Expression;
 
-    constructor(name: Name, initializer: Expression, limit: Expression, increment: Expression) {
-        super();
+  constructor(
+    name: Name,
+    initializer: Expression,
+    limit: Expression,
+    increment: Expression,
+  ) {
+    super();
 
-        this.name = name
-        this.initializer = initializer
-        this.limit = limit
-        this.increment = increment
-    }
+    this.name = name;
+    this.initializer = initializer;
+    this.limit = limit;
+    this.increment = increment;
+  }
 }
 
 export class ForNameInExpressionListDoBlockEndStatement extends Statement {
-    nameList: NameList
-    expressionList: ExpressionList
-    block: Block
+  nameList: NameList;
+  expressionList: ExpressionList;
+  block: Block;
 
-    constructor(names: NameList, expressions: ExpressionList, block: Block) {
-        super();
+  constructor(names: NameList, expressions: ExpressionList, block: Block) {
+    super();
 
-        this.nameList = names
-        this.expressionList = expressions
-        this.block = block
-    }
+    this.nameList = names;
+    this.expressionList = expressions;
+    this.block = block;
+  }
 }
 
 export class FunctionNameBodyStatement extends Statement {
-    functionName: FunctionName
-    functionBody: FunctionBody
+  functionName: FunctionName;
+  functionBody: FunctionBody;
 
-    constructor(functionName: FunctionName, functionBody: FunctionBody) {
-        super();
+  constructor(functionName: FunctionName, functionBody: FunctionBody) {
+    super();
 
-        this.functionName = functionName
-        this.functionBody = functionBody
-    }
+    this.functionName = functionName;
+    this.functionBody = functionBody;
+  }
 }
 
 export class LocalFunctionNameFunctionBodyStatement extends Statement {
-    functionName: Name
-    functionBody: FunctionBody
+  functionName: Name;
+  functionBody: FunctionBody;
 
-    constructor(functionName: Name, functionBody: FunctionBody) {
-        super();
+  constructor(functionName: Name, functionBody: FunctionBody) {
+    super();
 
-        this.functionName = functionName
-        this.functionBody = functionBody
-    }
+    this.functionName = functionName;
+    this.functionBody = functionBody;
+  }
 }
 
 export class LocalAttributeNameListStatement extends Statement {
-    attributeNameList: AttributeNameList
-    expressionList?: ExpressionList
+  attributeNameList: AttributeNameList;
+  expressionList?: ExpressionList;
 
-    constructor(attributeNameList: AttributeNameList, expressionList?: ExpressionList) {
-        super();
+  constructor(
+    attributeNameList: AttributeNameList,
+    expressionList?: ExpressionList,
+  ) {
+    super();
 
-        this.attributeNameList = attributeNameList
-        this.expressionList = expressionList
-    }
+    this.attributeNameList = attributeNameList;
+    this.expressionList = expressionList;
+  }
 }
 
 /** - Attribute Name List - **/
 
 export class AttributeNameList {
-    namesAttributes: [name: Name, attribute: Attribute][]
+  namesAttributes: [name: Name, attribute: Attribute][];
 
-    constructor(nameAttributes: [name: Name, attribute: Attribute][]) {
-        this.namesAttributes = nameAttributes
-    }
+  constructor(nameAttributes: [name: Name, attribute: Attribute][]) {
+    this.namesAttributes = nameAttributes;
+  }
 }
 
 /** - Attribute - **/
 
 export class Attribute {
-    name?: Name
+  name?: Name;
 
-    constructor(name?: Name) {
-        this.name = name
-    }
+  constructor(name?: Name) {
+    this.name = name;
+  }
 }
 
 /** - Return Statement - **/
 
 export class ReturnStatement {
-    expressionList: ExpressionList
+  expressionList: ExpressionList;
 
-    constructor(expressionList: ExpressionList) {
-        this.expressionList = expressionList
-    }
-
+  constructor(expressionList: ExpressionList) {
+    this.expressionList = expressionList;
+  }
 }
 
 /** - Label - **/
 
 export class Label {
-    name: Name
+  name: Name;
 
-    constructor(name: Name) {
-        this.name = name
-    }
+  constructor(name: Name) {
+    this.name = name;
+  }
 }
 
 /** - Function Name - **/
 
 export class FunctionName {
-    names: Name[]
-    endingName?: Name
+  names: Name[];
+  endingName?: Name;
 
-    constructor(names: Name[], endingName?: Name) {
-        this.names = names
-        this.endingName = endingName
-    }
+  constructor(names: Name[], endingName?: Name) {
+    this.names = names;
+    this.endingName = endingName;
+  }
 }
 
 /** - Name - **/
 
 export class Name {
-    name: string
+  name: string;
 
-    constructor(value: string) {
-        this.name = value
-    }
+  constructor(value: string) {
+    this.name = value;
+  }
 }
 
 /** - Variable - **/
@@ -248,13 +258,13 @@ export class Name {
 export class Variable {}
 
 export class NameVariable extends Variable {
-    name: Name
+  name: Name;
 
-    constructor(name: Name) {
-        super();
+  constructor(name: Name) {
+    super();
 
-        this.name = name
-    }
+    this.name = name;
+  }
 }
 
 export class PrefixExpressionExpressionVariable extends Variable {}
@@ -264,31 +274,31 @@ export class PrefixExpressionNameVariable extends Variable {}
 /** - Variable List - **/
 
 export class VariableList {
-    variables: Variable[]
+  variables: Variable[];
 
-    constructor(variables: Variable[]) {
-        this.variables = variables
-    }
+  constructor(variables: Variable[]) {
+    this.variables = variables;
+  }
 }
 
 /** - NameList - */
 
 export class NameList {
-    constructor(names: Name[]) {
-        this.names = names
-    }
+  constructor(names: Name[]) {
+    this.names = names;
+  }
 
-    names: Name[]
+  names: Name[];
 }
 
 /** - Expression List - **/
 
 export class ExpressionList {
-    expressions: Expression[]
+  expressions: Expression[];
 
-    constructor(expressions: Expression[]) {
-        this.expressions = expressions
-    }
+  constructor(expressions: Expression[]) {
+    this.expressions = expressions;
+  }
 }
 
 /** - Expression - **/
@@ -296,43 +306,40 @@ export class ExpressionList {
 export class Expression {}
 
 export class NilExpression extends Expression {
-    value: NilLiteral = new NilLiteral()
+  value: NilLiteral = new NilLiteral();
 }
 
 export class BooleanExpression extends Expression {
-    value: BooleanLiteral
+  value: BooleanLiteral;
 
-    constructor(value: BooleanLiteral) {
-        super();
-        this.value = value
-    }
+  constructor(value: BooleanLiteral) {
+    super();
+    this.value = value;
+  }
 }
 
-export class NumeralExpression extends Expression {
-
-}
+export class NumeralExpression extends Expression {}
 
 export class StringLiteralExpression extends Expression {
-    stringLiteral: StringLiteral
+  stringLiteral: StringLiteral;
 
-    constructor(stringLiteral: StringLiteral) {
-        super();
+  constructor(stringLiteral: StringLiteral) {
+    super();
 
-        this.stringLiteral = stringLiteral
-    }
+    this.stringLiteral = stringLiteral;
+  }
 }
 
 export class VariadicExpression extends Expression {}
 
 export class PrefixExpressionExpression extends Expression {
-    prefixExpression: PrefixExpression
+  prefixExpression: PrefixExpression;
 
-    constructor(prefixExpression: PrefixExpression) {
-        super();
+  constructor(prefixExpression: PrefixExpression) {
+    super();
 
-        this.prefixExpression = prefixExpression
-    }
-
+    this.prefixExpression = prefixExpression;
+  }
 }
 
 /** - Prefix Expression **/
@@ -340,15 +347,13 @@ export class PrefixExpressionExpression extends Expression {
 export class PrefixExpression {}
 
 export class VariablePrefixExpression extends PrefixExpression {
-    value: Variable = {}
+  value: Variable = {};
 }
 
-export class FunctionCallPrefixExpression extends PrefixExpression {
-
-}
+export class FunctionCallPrefixExpression extends PrefixExpression {}
 
 export class ExpressionPrefixExpression extends PrefixExpression {
-    value: Expression = {}
+  value: Expression = {};
 }
 
 /** - Function Call - **/
@@ -356,29 +361,29 @@ export class ExpressionPrefixExpression extends PrefixExpression {
 export class FunctionCall {}
 
 export class PrefixArgumentsFunctionCall extends FunctionCall {
-    prefixExpression: PrefixExpression
-    arguments: Arguments
+  prefixExpression: PrefixExpression;
+  arguments: Arguments;
 
-    // @ts-ignore
-    constructor(prefixExpression: PrefixExpression, argumentz: Arguments) {
-        super();
+  // @ts-ignore
+  constructor(prefixExpression: PrefixExpression, argumentz: Arguments) {
+    super();
 
-        this.prefixExpression = prefixExpression
-        this.arguments = argumentz
-    }
+    this.prefixExpression = prefixExpression;
+    this.arguments = argumentz;
+  }
 }
 
 export class PrefixNameArgumentsFunctionCall extends FunctionCall {
-    prefixExpression: PrefixExpression
-    arguments: Arguments
+  prefixExpression: PrefixExpression;
+  arguments: Arguments;
 
-    // @ts-ignore
-    constructor(prefixExpression: PrefixExpression, argumentz: Arguments) {
-        super();
+  // @ts-ignore
+  constructor(prefixExpression: PrefixExpression, argumentz: Arguments) {
+    super();
 
-        this.prefixExpression = prefixExpression
-        this.arguments = argumentz
-    }
+    this.prefixExpression = prefixExpression;
+    this.arguments = argumentz;
+  }
 }
 
 /** - Argument - **/
@@ -388,31 +393,30 @@ export class Arguments {}
 /** - Function Definition - **/
 
 export class FunctionDefinition {
-    functionBody: FunctionBody
+  functionBody: FunctionBody;
 
-    constructor(functionBody: FunctionBody) {
-        this.functionBody = functionBody
-    }
+  constructor(functionBody: FunctionBody) {
+    this.functionBody = functionBody;
+  }
 }
 
 /** - Function Body - **/
 
-export class FunctionBody {
-}
+export class FunctionBody {}
 
 /** - Parameter List - **/
 
 export class ParameterList {}
 
-export class NamedVariadicParameterList extends  ParameterList{
-    nameList: NameList
-    variadicLiteral?: VariadicLiteral
+export class NamedVariadicParameterList extends ParameterList {
+  nameList: NameList;
+  variadicLiteral?: VariadicLiteral;
 
-    constructor(nameList: NameList, variadicLiteral: VariadicLiteral) {
-        super()
-        this.nameList = nameList
-        this.variadicLiteral = variadicLiteral
-    }
+  constructor(nameList: NameList, variadicLiteral: VariadicLiteral) {
+    super();
+    this.nameList = nameList;
+    this.variadicLiteral = variadicLiteral;
+  }
 }
 
 export class VariadicParameterList extends ParameterList {}
@@ -420,21 +424,21 @@ export class VariadicParameterList extends ParameterList {}
 /** - Table Constructor - **/
 
 export class TableConstructor {
-    fieldList?: FieldList
+  fieldList?: FieldList;
 
-    constructor(fieldList: FieldList) {
-        this.fieldList = fieldList
-    }
+  constructor(fieldList: FieldList) {
+    this.fieldList = fieldList;
+  }
 }
 
 /** - Field List - **/
 
 export class FieldList {
-    fields: Field[]
+  fields: Field[];
 
-    constructor(fields: Field[]) {
-        this.fields = fields
-    }
+  constructor(fields: Field[]) {
+    this.fields = fields;
+  }
 }
 
 /** - Field - **/
@@ -442,70 +446,70 @@ export class FieldList {
 export class Field {}
 
 export class ExpressionKeyValueExpressionField extends Field {
-    key: Expression
-    value: Expression
+  key: Expression;
+  value: Expression;
 
-    constructor(key: Expression, value: Expression) {
-        super()
-        this.key = key
-        this.value = value
-    }
+  constructor(key: Expression, value: Expression) {
+    super();
+    this.key = key;
+    this.value = value;
+  }
 }
 
 export class NameKeyValueExpressionField extends Field {
-    key: Name
-    value: Expression
+  key: Name;
+  value: Expression;
 
-    constructor(key: Name, value: Expression) {
-        super();
+  constructor(key: Name, value: Expression) {
+    super();
 
-        this.key = key
-        this.value = value
-    }
+    this.key = key;
+    this.value = value;
+  }
 }
 
 export class ExpressionField extends Field {
-    expression: Expression
+  expression: Expression;
 
-    constructor(expression: Expression) {
-        super();
-        this.expression = expression
-    }
+  constructor(expression: Expression) {
+    super();
+    this.expression = expression;
+  }
 }
 
 /** - Binary Operator - **/
 
 export enum BinaryOperator {
-    PLUS,
-    MINUS,
-    ASTERISK,
-    SLASH,
-    DOUBLE_SLASH,
-    CARROT,
-    PERCENT,
-    AMPERSAND,
-    TILDE,
-    PIPE,
-    DOUBLE_ARROW_RIGHT,
-    DOUBLE_ARROW_LEFT,
-    DOUBLE_PERIOD,
-    LESS_THAN,
-    LESS_THAN_EQUALS,
-    GREATER_THAN,
-    GREATER_THAN_EQUALS,
-    DOUBLE_EQUALS,
-    TILDE_EQUALS,
-    AND,
-    OR
+  PLUS,
+  MINUS,
+  ASTERISK,
+  SLASH,
+  DOUBLE_SLASH,
+  CARROT,
+  PERCENT,
+  AMPERSAND,
+  TILDE,
+  PIPE,
+  DOUBLE_ARROW_RIGHT,
+  DOUBLE_ARROW_LEFT,
+  DOUBLE_PERIOD,
+  LESS_THAN,
+  LESS_THAN_EQUALS,
+  GREATER_THAN,
+  GREATER_THAN_EQUALS,
+  DOUBLE_EQUALS,
+  TILDE_EQUALS,
+  AND,
+  OR,
 }
 
 /** - Unary Operator - **/
 
 export enum UnaryOperator {
-    MINUS,
-    NOT,
-    POUND,
-    TILDE
+  MINUS,
+  NOT,
+  POUND,
+  TILDE,
 }
 
 /** - Literal - **/
@@ -513,35 +517,35 @@ export enum UnaryOperator {
 export class Literal {}
 
 export class BooleanLiteral extends Literal {
-    value: boolean
+  value: boolean;
 
-    constructor(value: boolean) {
-        super()
-        this.value = value
-    }
+  constructor(value: boolean) {
+    super();
+    this.value = value;
+  }
 }
 
 export class StringLiteral extends Literal {
-    value: string
+  value: string;
 
-    constructor(value: string) {
-        super()
-        this.value = value
-    }
+  constructor(value: string) {
+    super();
+    this.value = value;
+  }
 }
 
 export class NilLiteral extends Literal {
-    value: null = null
+  value: null = null;
 }
 
-export class VariadicLiteral extends Literal{}
+export class VariadicLiteral extends Literal {}
 
 // TODO: this is not conformant to the Lua numeric constant spec.
 export class NumberLiteral extends Literal {
-    value: number
+  value: number;
 
-    public constructor(value: number) {
-        super()
-        this.value = value
-    }
+  public constructor(value: number) {
+    super();
+    this.value = value;
+  }
 }
