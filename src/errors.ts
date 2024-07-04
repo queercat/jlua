@@ -7,11 +7,3 @@ export class JluaError extends Error {
     Object.setPrototypeOf(this, JluaError.prototype);
   }
 }
-
-export class JluaUnexpectedEofError extends JluaError {
-  constructor(message: string, token: Token) {
-    super(message, token.start);
-
-    Object.setPrototypeOf(this, JluaUnexpectedEofError.prototype);
-  }
-}

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "main": "src/jlua.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest",
     "start": "tsx src/jlua.ts",
     "lint": "prettier . --write"
   },
@@ -14,6 +14,7 @@
   "devDependencies": {
     "@types/node": "^20.14.9",
     "prettier": "^3.3.2",
-    "tsx": "^4.16.0"
+    "tsx": "^4.16.0",
+    "vitest": "^1.6.0"
   }
 }
